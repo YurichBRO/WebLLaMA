@@ -15,7 +15,7 @@ class CommandManager:
     @staticmethod
     def get_command_name(text):
         i = 1
-        while i < len(text) and text[i].isalnum():
+        while i < len(text) and (text[i].isalnum() or text[i] == '_'):
             i += 1
         command_name = text[1:i].lower()
         return command_name

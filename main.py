@@ -27,12 +27,10 @@ def assistant_responce(bot: telebot.TeleBot, db, message):
             try:
                 bot.edit_message_text(text, from_, new_message.id)
             except:
-                print("got here 1")
                 logging.error(f"Failed to edit message in chat {from_}")
     try:
         bot.edit_message_text(text, from_, new_message.id)
     except:
-        print("got here 2")
         logging.error(f"Failed to edit message in chat {from_}")
     db.add_message(from_, {'role': 'assistant', 'content': text})
 
