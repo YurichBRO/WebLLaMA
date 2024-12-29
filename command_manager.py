@@ -1,7 +1,8 @@
 class CommandManager:
-    def __init__(self, bot, no_command_action=lambda bot, message: None):
+    def __init__(self, bot, db, no_command_action=lambda bot, db, message: None):
         self.commands = {}
         self.bot = bot
+        self.db = db
         self.no_command_action = no_command_action
     
     def add_command(self, command, callback):
@@ -26,9 +27,9 @@ class CommandManager:
             if text and text[0] == '/':
                 command_name = self.get_command_name(text)
                 if command_name in self.commands:
-                    self.commands[command_name](self.bot, message)
+                    self.commands[command_name](self.bot, self.db, message)
                 else:
-                    self.no_command_action(self.bot, message)
+                    self.no_command_action(self.bot, self.db, message)
             else:
-                self.no_command_action(self.bot, message)
+                self.no_command_action(self.bot, self.db, message)
             
