@@ -7,5 +7,5 @@ except:
     logging.critical("Failed to open manual-message.txt")
     exit(1)
 else:
-    def callback(bot, db, message):
+    def callback(bot, db, chat, message):
         bot.send_message(message.from_user.id, manual_message)

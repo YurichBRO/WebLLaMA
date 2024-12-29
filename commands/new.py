@@ -1,7 +1,6 @@
 import logging
-from database import UserDatabase
 
-def callback(bot, db: UserDatabase, message):
+def callback(bot, db, message):
     from_ = message.from_user.id
     db.add_chat(from_)
     bot.send_message(from_, "Чат успешно создан")
