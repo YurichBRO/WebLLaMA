@@ -28,7 +28,7 @@ class UserDatabase:
         self.save()
     
     def get_current_chat_number(self, user):
-        return self.data[str(user)]['current-chat'] if str(user) in self.data else -1
+        return self.data[str(user)]['current-chat'] if str(user) in self.data else 0
     
     def add_message(self, user, message):
         if str(user) not in self.data:
@@ -40,7 +40,7 @@ class UserDatabase:
         return self.data[str(user)]['chats'][self.get_current_chat_number(user)] if str(user) in self.data else []
     
     def get_history(self, user):
-        return self.data[str(user)]['chats'] if str(user) in self.data else []
+        return self.data[str(user)]['chats'] if str(user) in self.data else [[]]
     
     def select_chat(self, user, index):
         if str(user) not in self.data:
@@ -57,7 +57,7 @@ class UserDatabase:
         if 0 <= index < len(self.data[str(user)]['chats']):
             del self.data[str(user)]['chats'][index]
             if len(self.data[str(user)]['chats']) == 0:
-                self.new_chat(user, index)
+                self.add_chat(user)
             if self.get_current_chat_number(user) == len(self.data[str(user)]['chats']):
                 self.select_chat(user, len(self.data[str(user)]['chats']) - 1)
             self.save()
