@@ -12,7 +12,7 @@
 Перейти в нужную папку
 cd "Путь/к/папке/в/которой/будет/располагаться/бот"
 Клонировать репозиторий
-git clone "https://github.com/YurichBRO/WebLLaMA"
+git clone "https://github.com/YurichBRO/WebLLaMA" .
 Подготовить виртуальное окружение
 .\setup.bat
 
@@ -22,7 +22,7 @@ git clone "https://github.com/YurichBRO/WebLLaMA"
 
 6. В файле config.json замените токен на свой.
 
-7. Создайте файл user.json
+7. Создайте файл users.json
 Введите в него следующее содержимое:
 {}
 
@@ -30,7 +30,7 @@ git clone "https://github.com/YurichBRO/WebLLaMA"
 Подготовить модель к запуску
 ollama pull llama3.2
 Запустить бота
-python main.py
+.\venv\Scripts\python.exe main.py
 
 9. Напишите вашему боту
 Найдите вашего бота в Telegram по тегу. Проверьте его функциональность.
