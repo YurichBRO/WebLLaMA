@@ -1,4 +1,4 @@
-call python -m venv venv
+call py -m venv venv
 
 call .\venv\Scripts\activate.bat
 
